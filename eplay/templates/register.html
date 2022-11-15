@@ -1,0 +1,171 @@
+{% extends "layout.html" %} 
+
+{% block title %} Index {% endblock %} 
+
+
+{% block header %}
+
+<nav>
+  <img class="logo" src="{{ url_for('static', filename='Eplay.png')}}" />
+  <ul
+    id="primary-navigation"
+    data-something="false"
+    class="primary-navigation flex underline-indicators"
+  >
+    <li>
+      <a
+        class="uppercase text-color letter-spacing-2 ff-sans-cond"
+        href="/"
+        >Home</a
+      >
+    </li>
+    <li class="list-center">
+      <a class="uppercase letter-spacing-2 ff-sans-cond" href="/about"
+        >About us</a
+      >
+    </li>
+    <li>
+      <a
+        class="uppercase letter-spacing-2 ff-sans-cond jp"
+        href="/class"
+        >クラス</a
+      >
+    </li>
+    <li>
+      <a
+        class="uppercase letter-spacing-2 ff-sans-cond jp"
+        href="/events"
+        >イベント</a
+      >
+    </li>
+    <li aria-selected="true" class="active">
+      <a
+        class="uppercase letter-spacing-2 ff-sans-cond jp"
+        href="/register"
+        >体験申込み</a
+      >
+    </li>
+    <li>
+      <a
+        class="uppercase letter-spacing-2 ff-sans-cond jp"
+        href="/access"
+        >アクセス</a
+      >
+    </li>
+    <!-- <li class="nav-item dropdown">
+      <a
+        class="nav-link dropdown-toggle uppercase letter-spacing-2 ff-sans-cond"
+        href="#"
+        role="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        Language
+      </a>
+      <ul class="dropdown-menu uppercase ff-sans-serif">
+        <li>
+          <button id="eng" class="button uppercase">English</button>
+        </li>
+        <li><button id="jp" class="button jp">日本語</button></li>
+      </ul>
+    </li> -->
+  </ul>
+</nav>
+
+{% endblock %}
+
+
+{% block main %}
+<form id="formcenter" class="formcenter" action="/register" method="POST">
+
+  <p class="jp jpform">クラスを選んで下さい</p>
+  <div class="selectors">
+    <ul class="formbuttons class-cards">
+      <li>
+        <input type="checkbox" id="check_1" name="classesChecked" value="kids">
+        <label class="prevent-select" for="check_1">Kidsルーム</label>
+      </li>
+      <li>
+        <input type="checkbox" id="check_2" name="classesChecked" value="a">
+        <label class="prevent-select" for="check_2">Aルーム</label>
+      </li>
+      <li>
+        <input type="checkbox" id="check_3" name="classesChecked" value="b">
+        <label class="prevent-select" for="check_3">Bルーム</label>
+      </li>
+      <li>
+        <input type="checkbox" id="check_4" name="classesChecked" value="c">
+        <label class="prevent-select" for="check_4">Cルーム</label>
+      </li>
+    </ul>
+  </div>
+
+  <p class="jp jpform">ご希望の日付を選んで下さい</p>
+
+  <input type="date" class="calendar" id="calendar" name="calendar" required>
+
+  <p class="jp jpform">メール</p>
+      <input id="email" class="email" autocomplete="off"  placeholder="メール" type="email" name="email">
+ 
+  <p class="jp jpform">名前</p>
+      <input id="name" class="email" autocomplete="off"  placeholder="名前" type="text" name="name">
+ 
+  
+
+  <button class="btn btn-primary" type="submit">登録</button>
+</form>
+
+{% endblock %}
+
+{% block script %}
+
+<script>
+const form = document.getElementById('formcenter');
+
+
+let field = document.getElementById('calendar');
+
+// Handle date changes
+field.addEventListener('input', function () {
+
+  // Get the date
+  let date = new Date(`${field.value}T00:00`);
+  console.log(date);
+  
+});
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const checkBoxes = document.querySelectorAll('input[type="checkbox"]:checked');
+  let values = [];
+            checkBoxes.forEach((checkbox) => {
+              values.push(checkbox.value);
+            });
+  const count = values.length;
+
+  const email = document.getElementById('email').value;
+
+  const name = document.getElementById('name').value;
+
+  console.log(email)
+
+
+  if (count == 0 || email == '' || name == '') {
+    alert("The form is incomplete.")
+
+  } 
+  else {
+  console.log(values);
+  event.target.submit();
+}
+  
+  
+ 
+
+})
+
+</script>
+    
+
+
+{% endblock %}
