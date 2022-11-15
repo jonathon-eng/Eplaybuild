@@ -1,0 +1,85 @@
+{% extends "layout.html" %} 
+
+{% block title %} Index {% endblock %} 
+
+
+{% block header %}
+
+<nav>
+  <img class="logo" src="{{ url_for('static', filename='Eplay.png')}}" />
+  <ul
+    id="primary-navigation"
+    data-something="false"
+    class="primary-navigation flex underline-indicators"
+  >
+    <li aria-selected="true" class="active">
+      <a
+        class="uppercase text-color letter-spacing-2 ff-sans-cond"
+        href="/"
+        >Home</a
+      >
+    </li>
+    <li class="list-center">
+      <a class="uppercase letter-spacing-2 ff-sans-cond" href="/about"
+        >About us</a
+      >
+    </li>
+    <li>
+      <a
+        class="uppercase letter-spacing-2 ff-sans-cond jp"
+        href="/class"
+        >クラス</a
+      >
+    </li>
+    <li>
+      <a
+        class="uppercase letter-spacing-2 ff-sans-cond jp"
+        href="/events"
+        >イベント</a
+      >
+    </li>
+    <li>
+      <a
+        class="uppercase letter-spacing-2 ff-sans-cond jp"
+        href="/register"
+        >体験申込み</a
+      >
+    </li>
+    <li>
+      <a
+        class="uppercase letter-spacing-2 ff-sans-cond jp"
+        href="/access"
+        >アクセス</a
+      >
+    </li>
+    <!-- <li class="nav-item dropdown">
+      <a
+        class="nav-link dropdown-toggle uppercase letter-spacing-2 ff-sans-cond"
+        href="#"
+        role="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        Language
+      </a>
+      <ul class="dropdown-menu uppercase ff-sans-serif">
+        <li>
+          <button id="eng" class="button uppercase">English</button>
+        </li>
+        <li><button id="jp" class="button jp">日本語</button></li>
+      </ul>
+    </li> -->
+  </ul>
+</nav>
+
+{% endblock %}
+
+
+{% block main %}
+<div id="jp-text">
+  <a href="/about" class="large-button ff-sans-normal circle-bg jp"
+    >E play とは?</a
+  >
+</div>
+
+{% endblock %}

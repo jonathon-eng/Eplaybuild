@@ -1,0 +1,189 @@
+{% extends "layout.html" %} 
+
+{% block title %} Index {% endblock %} 
+
+
+
+{% block header %}
+
+<nav>
+  <img class="logo" src="{{ url_for('static', filename='Eplay.png')}}" />
+  <ul
+    id="primary-navigation"
+    data-something="false"
+    class="primary-navigation flex underline-indicators"
+  >
+    <li>
+      <a
+        class="uppercase text-color letter-spacing-2 ff-sans-cond"
+        href="/"
+        >Home</a
+      >
+    </li>
+    <li class="list-center">
+      <a class="uppercase letter-spacing-2 ff-sans-cond" href="/about"
+        >About us</a
+      >
+    </li>
+    <li aria-selected="true" class="active">
+      <a
+        class="uppercase letter-spacing-2 ff-sans-cond jp"
+        href="/class"
+        >クラス</a
+      >
+    </li>
+    <li>
+      <a
+        class="uppercase letter-spacing-2 ff-sans-cond jp"
+        href="/events"
+        >イベント</a
+      >
+    </li>
+    <li>
+      <a
+        class="uppercase letter-spacing-2 ff-sans-cond jp"
+        href="/register"
+        >体験申込み</a
+      >
+    </li>
+    <li>
+      <a
+        class="uppercase letter-spacing-2 ff-sans-cond jp"
+        href="/access"
+        >アクセス</a
+      >
+    </li>
+    <!-- <li class="nav-item dropdown">
+      <a
+        class="nav-link dropdown-toggle uppercase letter-spacing-2 ff-sans-cond"
+        href="#"
+        role="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        Language
+      </a>
+      <ul class="dropdown-menu uppercase ff-sans-serif">
+        <li>
+          <button id="eng" class="button uppercase">English</button>
+        </li>
+        <li><button id="jp" class="button jp">日本語</button></li>
+      </ul>
+    </li> -->
+  </ul>
+</nav>
+
+{% endblock %}
+
+
+
+{% block main %}
+<div class="main-container">
+    <h1 class="center jp">選択クラス</h1>
+    <div class="flex class-cards" role="tablist" aria-label="class list">
+      <button
+        aria-selected="true"
+        class="class orange"
+        aria-controls="kids-tab"
+        role="tab"
+      >
+        <span class="sr-only" tabindex="0">Slider title</span>
+        <span class="class-names">Kidsルーム</span><br />
+        <span class="subtext">年中•年長</span>
+      </button>
+      <button
+        aria-selected="false"
+        class="class yellow"
+        aria-controls="a-tab"
+        role="tab"
+      >
+        <span class="sr-only" tabindex="-1">Slider title</span>
+        <span class="prevent-select class-names">Aルーム</span><br />
+        <span class="prevent-select subtext">小学１•２年生</span>
+      </button>
+      <button
+        aria-selected="false"
+        class="class green"
+        aria-controls="b-tab"
+        role="tab"
+      >
+        <span class="sr-only" tabindex="-1">Slider title</span>
+        <span class="class-names">Bルーム</span><br />
+        <span class="subtext">小学３•４年生</span>
+      </button>
+      <button
+        aria-selected="false"
+        class="class blue"
+        aria-controls="c-tab"
+        role="tab"
+      >
+        <span class="sr-only" tabindex="-1">Slider title</span>
+        <span class="class-names">Cルーム</span><br />
+        <span class="subtext">小学５•６年生</span>
+      </button>
+    </div>
+
+    <article
+      class="class-container"
+      id="kids-tab"
+      role="tabpanel"
+      tabindex="0"
+    >
+      <h1>Example 1</h1>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus
+        praesentium, tenetur doloremque cupiditate aut exercitationem
+        blanditiis sunt inventore magnam maxime laboriosam, deserunt officia
+        ipsam quis earum? Natus, iusto vero. Architecto?
+      </p>
+    </article>
+    <article
+      hidden
+      class="class-container"
+      id="a-tab"
+      role="tabpanel"
+      tabindex="0"
+    >
+      <h1>Example 2</h1>
+      <p>
+        This is an example Lorem ipsum dolor sit, amet consectetur
+        adipisicing elit. Delectus praesentium, tenetur doloremque
+        cupiditate aut exercitationem blanditiis sunt inventore magnam
+        maxime laboriosam, deserunt officia ipsam quis earum? Natus, iusto
+        vero. Architecto?
+      </p>
+    </article>
+    <article
+      hidden
+      class="class-container"
+      id="b-tab"
+      role="tabpanel"
+      tabindex="0"
+    >
+      <h1>Example 3</h1>
+      <p>
+        Another example Lorem ipsum dolor sit, amet consectetur adipisicing
+        elit. Delectus praesentium, tenetur doloremque cupiditate aut
+        exercitationem blanditiis sunt inventore magnam maxime laboriosam,
+        deserunt officia ipsam quis earum? Natus, iusto vero. Architecto?
+      </p>
+    </article>
+    <article
+      hidden
+      class="class-container"
+      id="c-tab"
+      role="tabpanel"
+      tabindex="0"
+    >
+      <h1>Example 4</h1>
+      <p>
+        Yet another example Lorem ipsum dolor sit, amet consectetur
+        adipisicing elit. Delectus praesentium, tenetur doloremque
+        cupiditate aut exercitationem blanditiis sunt inventore magnam
+        maxime laboriosam, deserunt officia ipsam quis earum? Natus, iusto
+        vero. Architecto?
+      </p>
+    </article>
+  </div>
+
+{% endblock %}
